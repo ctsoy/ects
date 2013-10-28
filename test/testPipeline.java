@@ -12,6 +12,7 @@ public class testPipeline {
 	
 	public Candidate john;
 	public Candidate katy;
+	public Candidate ryan;
 	
 	@Before
 	public void prepare(){
@@ -25,6 +26,10 @@ public class testPipeline {
 		
 		john = new Candidate("John Dough", d1);
 		katy = new Candidate("Katy Perry", d1);
+		ryan = new Candidate ("Ryan Bug", d1);
+		ryan.editPosition("Intern");
+		ryan.editResume("http://drive.google.com/ryanbugresume.pdf");
+		ryan.editSource(0);
 	}
 
 	@Test
@@ -40,6 +45,25 @@ public class testPipeline {
 		Pipeline p2 = new Pipeline();
 		p2.addCandidate(john);
 		assertEquals("John is found", 1, p2.findCandidateByName("John Dough").size());
+	}
+	
+	@Test
+	public void testGetDisplayDate(){
+		Pipeline p3 = new Pipeline();
+		assertEquals("Display John's entry date", "10-03-2013", p3.getDisplayDate(john.getEntryDate()));
+	}
+	
+	@Test
+	public void testGetDisplaySource(){
+		Pipeline p5 = new Pipeline();
+		assertEquals("Display source name", "UR", p5.getDisplaySource(ryan.getSource()));
+	}
+	
+	@Test
+	public void testCandidateToString(){
+		Pipeline p4 = new Pipeline();
+		p4.addCandidate(ryan);
+		assertEquals("Print out Ryan's info.", "Ryan Bug, 10-03-2013, Intern, http://drive.google.com/ryanbugresume.pdf, UR", p4.candidateToString(ryan));
 	}
 
 }

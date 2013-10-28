@@ -3,15 +3,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-
-
-
 public class Candidate {
 
 	private String name;
 	private String resume;
 	private Date entryDate;
 	private int source;
+	private String position;
 	
 	public Candidate(String name) {
 		// TODO Auto-generated constructor stub
@@ -60,5 +58,16 @@ public class Candidate {
 		// TODO Auto-generated method stub
 		return source;
 	}
+
+	public void editPosition(String position) {
+		// TODO Auto-generated method stub
+		this.position = position;
+	}
+
+	public String getPosition() {
+		// TODO Auto-generated method stub
+		return this.position;
+	}
+	
 
 }

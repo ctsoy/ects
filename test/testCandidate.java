@@ -65,5 +65,15 @@ public class testCandidate {
 		t6.editSource(1);
 		assertEquals("Candidate is found by recruiters.", 1, t6.getSource());
 	}
+	
+	@Test
+	// test edit and retrieve target position of the candidate
+	public void testCandidatePosition(){
+		Candidate t7 = new Candidate("Harry Stands");
+		t7.editPosition("NCG");
+		assertEquals("This is an NCG candidate.", "NCG", t7.getPosition());
+	}
+	
+	
 
 }
